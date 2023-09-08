@@ -7,7 +7,7 @@
     "url": "https://github.com/An-jihyun/wetube-review.git"
   },
   "scripts": {
-    "start": "node server.js"
+    "dev": "nodemon --exec babel-node server.js"
   },
   "author": "anjihyun <jihyun.an123@gmail.com>",
   "license": "MIT",
@@ -17,5 +17,10 @@
   "homepage": "https://github.com/An-jihyun/wetube-review#readme",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.15",
+    "@babel/preset-env": "^7.22.15",
+    "nodemon": "^3.0.1"
   }
 }
