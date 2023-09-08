@@ -1,0 +1,21 @@
+{
+  "name": "wetube-review",
+  "version": "1.0.0",
+  "description": "The best way to watch a videos",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/An-jihyun/wetube-review.git"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "anjihyun <jihyun.an123@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/An-jihyun/wetube-review/issues"
+  },
+  "homepage": "https://github.com/An-jihyun/wetube-review#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
