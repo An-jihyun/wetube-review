@@ -7,7 +7,7 @@
     "url": "https://github.com/An-jihyun/wetube-review.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "author": "anjihyun <jihyun.an123@gmail.com>",
   "license": "MIT",
