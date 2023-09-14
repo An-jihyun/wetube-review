@@ -1,4 +1,4 @@
-// import Video from "../models/Video";
+import Video from "../models/Video";
 
 export const home = (req, res) => {
     return res.render("home", { pageTitle: "Home" });
