@@ -34,6 +34,6 @@ export const getUpload = (req, res) => {
   };
   
   export const postUpload = (req, res) => {
-    const { title } = req.body;
+    const { title, description, hashtags } = req.body;
     return res.redirect("/");
 };
