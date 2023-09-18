@@ -36,11 +36,11 @@ export const getUpload = (req, res) => {
 export const postUpload = async (req, res) => {
     const { title, description, hashtags } = req.body;
     console.log(title, description, hashtags);
-    const video = new Video({
+    await Video.create({
         title,
         description,
-        hashtags: hashtags.split(",").map(word=> `#${word}`),
-        createdAt: Date.now(),
+        createdAt: "lsdlddldlldld",
+        hashtags: hashtags.split(",").map((word) => `#${word}`),
         meta: {
             views: 0,
             rating: 0,
