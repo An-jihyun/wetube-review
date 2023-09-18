@@ -33,8 +33,7 @@ export const getUpload = (req, res) => {
     return res.render("upload", { pageTitle: "Upload Video" });
   };
   
-  export const postUpload = (req, res) => {
-    export const postUpload = async (req, res) => {
+export const postUpload = async (req, res) => {
     const { title, description, hashtags } = req.body;
     console.log(title, description, hashtags);
     const video = new Video({
