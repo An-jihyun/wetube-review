@@ -10,7 +10,10 @@ export const home = async(req, res) => {
 export const watch = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
-  return res.render("watch", { pageTitle: video.title, video });
+  if(video){
+    return res.render("watch", { pageTitle: video.title , video });
+  }
+  return res.render("404");
 };
 
 export const getEdit = (req, res) => {
@@ -38,8 +41,8 @@ export const postUpload = async (req, res) => {
         });
     return res.redirect("/");
     } catch (error) {
-        return res.render("upload",
-            {pageTitle: "Upload Video",
+        return res.render("upload",{
+            pageTitle: "Upload Video",
             errorMessage: error._message,
         });
     }
