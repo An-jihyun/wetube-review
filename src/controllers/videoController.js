@@ -22,7 +22,7 @@ export const getEdit = async (req, res) => {
     if(!video){
         return res.render("404", {pageTitle: "Video not found."});
       }
-    return res.render("edit", { pageTitle: `Editing` });
+    return res.render("edit", { pageTitle: `Edit: ${video.title}`, video });
 };
 
 export const postEdit = (req, res) => {
