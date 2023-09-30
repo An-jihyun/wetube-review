@@ -59,27 +59,30 @@ export const postUpload = async (req, res) => {
   const {
     user: { _id },
   } = req.session;
-    const { path: fileUrl } = req.file;
-    const { title, description, hashtags } = req.body;
-    try{
-      const newVideo = await Video.create({
-            title,
-            description,
-            fileUrl,
-            owner: _id,
-            hashtags: Video.formatHashtags(hashtags),
-      });
-      const user = await User.findById(_id);
-      user.videos.push(newVideo._id);
-      user.save();
-      return res.redirect("/");
-    } catch (error) {
-        console.log(error);
-        return res.status(400).render("upload", {
-            pageTitle: "Upload Video",
-            errorMessage: error._message,
-        });
-    }
+  const { video, thumb } = req.files;
+  console.log(video, thumb);
+  const { title, description, hashtags } = req.body;
+  try{
+    const newVideo = await Video.create({
+      title,
+      description,
+      fileUrl: video[0].path,
+      thumbUrl: thumb[0].path.replace(/[\\]/g, "/"),
+      //.replace(/[\\]/g, "/") 따로 추가
+      owner: _id,
+      hashtags: Video.formatHashtags(hashtags),
+    });
+    const user = await User.findById(_id);
+    user.videos.push(newVideo._id);
+    user.save();
+    return res.redirect("/");
+  } catch (error) {
+    console.log(error);
+    return res.status(400).render("upload", {
+      pageTitle: "Upload Video",
+      errorMessage: error._message,
+    });
+  }
 };
 
 export const deleteVideo = async (req, res) => {
