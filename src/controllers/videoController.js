@@ -113,3 +113,4 @@ export const deleteVideo = async (req, res) => {
     }
     return res.render("search", { pageTitle: "Search", videos });
   };
+
