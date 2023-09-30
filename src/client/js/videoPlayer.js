@@ -106,16 +106,15 @@ const handleEnded = () => {
       method: "POST",
     });
 };
-  
 
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMuteClick);
 video.addEventListener("click", handlePlayClick);
-document.addEventListener("keyup", (event) => {
-    if (event.code === "Space") {
+document.addEventListener("keypress", (event) => {
+    if (event.code === "Space" && event.target.id !== "textarea") {
     handlePlayClick();
     }
-    });
+});
 
 volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadedmetadata", handleLoadedMetadata);
@@ -125,9 +124,3 @@ videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullscreen);
-// - m 버튼으로 mute 사용하기
-document.addEventListener("keyup", (event) => {
-    if (event.keyCode === 77) {
-    handleMuteClick();
-    }
-    });
